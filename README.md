@@ -1,9 +1,15 @@
+Insipration: [https://leetcode.com/discuss/study-guide/1170715/java-data-structure-mostly-used-syntax](https://leetcode.com/discuss/study-guide/1170715/java-data-structure-mostly-used-syntax)
+
+# Read it in the wiki for better readability
+
+[https://github.com/emanuele-em/java-cheatsheet/wiki](https://github.com/emanuele-em/java-cheatsheet/wiki)
+
+
 # Non-Primitive
 
 ## Collection interface
 
 ### List interface
-
 
 #### `ArrayList` Implementation
 
