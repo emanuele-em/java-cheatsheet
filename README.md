@@ -4,41 +4,63 @@
 
 ### List interface
 
+
 #### `ArrayList` Implementation
 
+Definition list of Integers
+
 ```
-//Definition list of Integers
 List<Integers> arrList = new ArrayList<>();
+```
 
-//insert an element
-arrList.add(num); // TC: O(1)
-arrList.add(i, num); // TC: O(n)
+Insert an element
+```
+arrList.add(num);
+arrList.add(i, num);
+```
 
-// delete an element at index i
-arrList.remove(i); // TC: O(n)
+Delete an element at index i
+```
+int removed = arrList.remove(i);
+```
 
-// set or update an element at index i
-arrList.set(i, num); // TC: O(1)
+Set or update an element at index i
+```
+int previousElementAtI = arrList.set(i, num);
+```
 
-// get an element at index i
-int num = arrList.get(i); // TC: O(1)
+Get an element at index i
+```
+int num = arrList.get(i);
+```
 
-// get the size of the list
-arrList.size(); // TC: O(1)
+Get the size of the list
+```
+int size = arrList.size();
+```
 
-// check for Empty
-arrList.isEmpty(); // TC: O(1)
+Check for Empty
+```
+boolean bool = arrList.isEmpty();
+```
 
-// check if there is an element
-arrList.contains(num); // TC: O(n)
+Check if there is an element
+```
+boolean bool = arrList.contains(num);
+```
 
-// get the index of a certain value 'num'
+Get the index of a certain value 'num'
+```
 int i = arrList.indexOf(num);
+```
 
-// cast to a primitive list, i.e. ArrayList<Integer> -> int[]
+Cast to a primitive list, i.e. ArrayList<Integer> -> int[]
+```
 int[] primArr = arrList.toArray();
+```
 
-// sorting
+Sorting
+```
 Collections.sort(arrList, (a, b) -> a-b); // Ascending
 Collections.sort(arrList, (a, b) -> b-a); // Descending
 ```
@@ -47,26 +69,38 @@ Collections.sort(arrList, (a, b) -> b-a); // Descending
 
 #### `HashSet` implementation
 
+Definition
 ```
-//Definition
 Set<Integer> set = new HashSet<>();
+```
 
-//insert an element num
-set.add(num);
+Insert an element `num`, return `true` if the set not already contain `num`
+```
+boolean setDoesNotContainNum = set.add(num);
+```
 
-// delete an element num
-set.remove(num);
+Delete an element `num`, return `true` if `num` was in `set`
+```
+boolean WasInSet = set.remove(num);
+```
 
-// check for an element num
-set.contains(num);
+Check for an element `num`
+```
+boolean contains = set.contains(num);
+```
 
-// get the size of the set
-set.size();
+Get the size of the set
+```
+int size = set.size();
+```
 
-// check for Empty
-set.isEmpty();
+Check for Empty
+```
+boolean isEmpty = set.isEmpty();
+```
 
-// remove all map values
+Remove all map values
+```
 map.clear();
 ```
 
@@ -74,38 +108,56 @@ map.clear();
 
 #### `HashMap` implementation
 
+Definition
 ```
-//Definition
 Map<K, V> map = new HashMap<>();
+```
 
-//insert / update an element with key k1 with value v1
-map.put(k1, v1); // TC: O(1)
+Insert / update an element with key k1 with value v1, return the previous element, if present, or `null` if not present
+```
+T previousElement = map.put(k1, v1);
+```
 
-// Create a counter for letters in a string
+Create a counter for letters in a string
+```
 Map<Character, Integer> freq = new HashMap<>();
 for(char c: str.toCharArray()){
     freq.put(c, freq.getOrDefault(c, 0) + 1);
 }
+```
 
-// delete an element with key k1
-V deltedEl =  map.remove(k1); // TC: O(1)
+Delete an element with key k1
+```
+D deletedEl =  map.remove(k1);
+```
 
-// get an element with key k1
-V el = map.get(k1); // TC: O(1)
+Get an element with key k1
+```
+V el = map.get(k1);
+```
 
-// get the size of the map
-map.size(); // TC: O(1)
+Get the size of the map
+```
+int size = map.size();
+```
 
-// check for Empty
-map.isEmpty(); // TC: O(1)
+Check for Empty
+```
+boolean isEmpty = map.isEmpty();
+```
 
-// check if there is a value with key k1
-map.containsKey(k1); // TC: O(1)
+Check if there is a value with key k1
+```
+boolean contains = map.containsKey(k1);
+```
 
-// remove all map values
-map.clear(); // TC: O(2n + 1) -> O(n) (n-key, n-value, 1 for map itself)
+Remove all map values
+```
+map.clear();
+```
 
-// in graph problem, when building adjacecy list from an edge List
+In graph problem, when building adjacecy list from an edge List
+```
 Map<Integer, List<Integer>> graph = new HashMap<>();
 for(int[] edge: edgeList){
     graph.computeIfAbsent(edge[0], val -> new ArrayList<>()).add(edge[1]);
@@ -117,192 +169,277 @@ for(int[] edge: edgeList){
 
 #### `LinkedList` implementation (deque)
 
+Definition
 ```
-//Definition
 Queue<Integers> queue = new LinkedList<>();
+```
 
-//insert an element
+Insert an element
+```
 queue.add(num);
-
-// delete element (the head)
-queue.poll();
-
-// look up the head element
-queue.peek();
-
-// get the size of the list
-queue.size();
-
-// check for Empty
-queue.isEmpty();
 ```
 
-##### `PiorityQueue` implementation (priority queue / heap)
-
+Delete element (the head), and returns it, it returns `null` if the queue is empty
 ```
-//Definition
+E head = queue.poll();
+```
+
+Retrieve but does not remove the head of the queue
+```
+E head = queue.peek();
+```
+
+Get the size of the list
+```
+int size = queue.size();
+```
+
+Check for Empty
+```
+boolean isEmpty = queue.isEmpty();
+```
+
+##### `PriorityQueue` implementation (priority queue / heap)
+
+Definition
+```
 Queue<Integers> heap = new PiorityQueue<>();
+```
 
-//insert an element
+Insert an element
+```
 heap.add(num);
+```
 
-// delete element (the head)
-heap.poll();
+Delete element (the head)
+```
+E head = heap.poll();
+```
 
-// look up the head element
-heap.peek();
+Retrieve but not remove the head of the priority queue
+```
+E head = heap.peek();
+```
 
-// get the size of the list
-heap.size();
+Get the size of the list
+```
+int size = heap.size();
+```
 
-// check for Empty
-heap.isEmpty();
+Check for Empty
+```
+boolean isEmpty = heap.isEmpty();
 ```
 
 #### Deque Interface
 
 ##### `ArrayDeque` implementation (stack)
 
+Definition
 ```
-//Definition
-Deque<Integer> stack = new ArrayDeque<>(); // preferred
+Deque<Integer> stack = new ArrayDeque<>();
+```
 
-//insert an element
-stack.add(num);
+Insert an element
+```
+boolean changed = stack.add(num); // it returns true if this collection is changed
+boolean changed = stack.addLast(num); // it returns true if this collections is changed
+```
 
-// delete element (the last)
-stack.pop();
+Delete element (the last)
+```
+E lastElement = stack.pop();
+```
 
-// look up the last element
-stack.peekLast();
+Retrieve the last element but does not remove it
+```
+E lastElement = stack.peekLast();
+```
 
-// get the size of the list
-stack.size();
+Get the size of the list
+```
+int size = stack.size();
+```
 
-// check for Empty
-stack.isEmpty();
+Check for Empty
+```
+boolean isEmpty = stack.isEmpty();
 ```
 
 ##### `ArrayDeque` implementation (deque)
 
+Definition
 ```
-//Definition
 Deque<Integer> deque = new ArrayDeque<>(); // preferred
+```
 
-//insert an element
-stack.add(num);
+Insert an element
+```
+boolean changed = stack.add(num);
+boolean changed = stack.addFirst(num);
+```
 
-// delete element (the first)
-stack.poll();
+Delete the first element
+```
+E firstElement = stack.poll();
+E firstElement = stack.pollFirst();
+```
 
-// look up the first element
-stack.peekFirst();
+Retrieve but not remove the first element
+```
+E firstElement = stack.peekFirst();
+E firstElement = stack.peek();
+```
 
-// get the size of the list
-stack.size();
+Get the size of the list
+```
+int size = stack.size();
+```
 
-// check for Empty
-stack.isEmpty();
+Check for Empty
+```
+boolean isEmpty = stack.isEmpty();
 ```
 
 # String and Character
 
 ## `String`
 
+Definition
 ```
-//Definition
 String str = new String();
+```
 
-// check the size
+Check the size
+```
 int size = str.size();
+```
 
-// convert to char array
+Convert to char array
+```
 char arrChar[] = str.toCharArray();
+```
 
-// char for a specific index i
+Char for a specific index i
+```
 char c = str.charAt(i);
+```
 
-// substring
+Substring
+```
 String sub = str.substring(i, j) // i inclusive, j exclusive
+```
 
-// to lowercase
+To lowercase
+```
 String newString = str.toLowerCase(); // str is invariated
+```
 
-// to uppercase
+To uppercase
+```
 String newString = str.toUpperCase(); // str is invariated
+```
 
-// replace all occurence of 'dog' with 'cat'
+Replace all occurence of 'dog' with 'cat'
+```
 String newString = str.replaceAll('dog', 'cat'); //str is invariated
+```
 
-// concatenation
+Concatenation
+```
 String a = "Hello ";
 String b = " world";
 a += b; // Hello world;
-
 ```
 
 ## `StringBuilder`
 
-```java
-//definition
+Definition
+```
 StringBuilder sb = new StringBuilder();
 StringBuilder sb = new StringBuilder(n); // with capacity of int n
+```
 
-// add something to the stringbuilder, char, Character, int, Integer etc...
+Add something to the stringbuilder, char, Character, int, Integer etc..., it returns a reference to the stringbuilder itself
+```
 sb.append("hello"); // "hello"
 sb.append(4); // "hello4"
+```
 
-// return the string
+Return the string
+```
 String str = sb.toString();
 ```
 
 ## `Character`
 
-```java
-// check if character c is a letter
-Character.isLetter(c);
+Check if character c is a letter
+```
+boolean isLetter = Character.isLetter(c);
+```
 
-// check if character c is alphabetic
-Character.isLetter(c); // i.e. 'V' as roman number is alphabetic but it is not letter
+Check if character c is alphabetic
+```
+boolean isAlphabetic = Character.isAlphabetic(c); // i.e. 'V' as roman number is alphabetic but it is not letter
+```
 
-// check if character c is uppercase
-Character.isUpperCase(c);
+Check if character c is uppercase
+```
+boolean isUpperCase = Character.isUpperCase(c);
+```
 
-// check if character c is lowercase
-Character.isLowerCase(c);
+Check if character c is lowercase
+```
+boolean isLowerCase = Character.isLowerCase(c);
+```
 
-// check if character c is digit
-Character.isDigit(c);
+Check if character c is digit
+```
+boolean isDigit = Character.isDigit(c);
+```
 
-// change case without buildin functions
-char lower = (char)(c | ' '); // change the c char to lowercase
-char upper = (char)(c & '_'); // change the c char to uppercase
+Change case without built-in functions
+```
+char cLower = (char)(c | ' '); // change the c char to lowercase
+char cUpper = (char)(c & '_'); // change the c char to uppercase
 ```
 
 # Primitive 
 
 ## Array
 
+Definition array of int of size n
 ```
-//Definition array of int of size n
 int arr[] = new int[n];
+```
 
-//insert or update an element at index i
+Insert or update an element at index i
+```
 arr[i] = v1
+```
 
-// get an element at index i
+Get an element at index i
+```
 int num = arr[i];
+```
 
-// get the size of the array
-arr.length; // TC: O(1)
+Get the size of the array
+```
+int size = arr.length;
+```
 
-// fill the entire array with a value v1
+Fill the entire array with a value v1
+```
 Arrays.fill(arr, v1);
+```
 
-// cast to a List, i.e. int[] -> ArrayList<Integer>
-arrList = Arrays.asList(arr);
+Cast to a List, i.e. int[] -> ArrayList<Integer>
+```
+List<T> arrList = Arrays.asList(arr);
+```
 
-// sorting
+Sorting
+```
 Arrays.sort(arr; // Ascending
 Arrays.sort(arr, (a, b) -> b-a); // Descending
 Arrays.sort(arr2D, (a, b) -> a[0]-b[0]) //sort 2d array by the first element only
@@ -311,4 +448,3 @@ Arrays.sort(arr2D, (a, b) -> {
     return a[0]-b[0];
 }); //sort 2d array by the first element and by the second reverse element (usefull for intervals)
 ```
-
